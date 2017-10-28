@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Platform, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
@@ -38,7 +39,10 @@ class History extends Component {
                     </Text>
                 </View>
                 : <TouchableOpacity
-                    onPress={() => console.log('Pressed!')}
+                    onPress={() => this.props.navigation.navigate(
+                        'EntryDetail',
+                        { entryId: key }
+                    )}
                 >
                     <MetricCard date={formattedDate} metrics={metrics} />
                 </TouchableOpacity>}
